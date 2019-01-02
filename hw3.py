@@ -57,7 +57,7 @@ def makedictionary(list):
 f = open('training.txt','r')
 
 #print(inputlist)
-#讀入input文件
+#讀入input文件 training.txt
 for line in f.readlines():
 	inputlist.append(line.split())
 #將training document 讀入並整理出所有的token
@@ -85,6 +85,7 @@ for key,values in sorted(dictionary.items(),key=lambda  item:item[1], reverse=Tr
 #print(dictfeature)
 
 #training phase
+#進行feature selection 
 v=[]
 tct=collections.defaultdict(dict)
 probt=collections.defaultdict(dict)
@@ -92,7 +93,7 @@ for i in range(len(inputlist)):
 	for j in AlldocinClass[i]:
 		if j in dictfeature:
 			v.append(j)
-
+#+1 是為了做smoothing
 for i in range(len(inputlist)):
 	prior=15 / 1095
 	sigma=0
